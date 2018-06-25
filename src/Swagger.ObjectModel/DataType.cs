@@ -130,5 +130,10 @@ namespace Swagger.ObjectModel
         [SwaggerProperty("multipleOf")]
         public int? MultipleOf { get; set; }
 
+        /// <summary>
+        /// DataType of additional properties for a schema
+        /// </summary>
+        [SwaggerProperty("additionalProperties")]
+        public DataType AdditionalProperties { get; set; }
     }
 }
