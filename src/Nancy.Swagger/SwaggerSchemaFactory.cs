@@ -107,7 +107,7 @@ namespace Nancy.Swagger
                 schema.Items = new Item();
                 if (!string.IsNullOrEmpty(property.Items.Type))
                 {
-                    schema.Items.Type = property.Items.Type;
+                    schema.Items = property.Items;
                 }
                 else
                 {

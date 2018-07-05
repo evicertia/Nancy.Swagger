@@ -77,6 +77,11 @@ namespace Nancy.Swagger
 
                     return dataType;
                 }
+                    else if (itemsType.IsContainer())
+                    {
+                        dataType.Items = itemsType.ToDataType<Item>();
+                        return dataType;
+                    }
 
                 dataType.Items = new Item { Ref = SwaggerConfig.ModelIdConvention(itemsType) };
 
