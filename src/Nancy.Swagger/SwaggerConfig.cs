@@ -76,6 +76,12 @@ namespace Nancy.Swagger
 
             var id = type.Name;
             var fullName = type.FullName;
+
+            if(fullName == null)
+            {
+                return id;
+            }
+
             var idx = fullName.LastIndexOf('.');
             while (_resolvedModelIds.GetOrAdd(id, type) != type)
             {
