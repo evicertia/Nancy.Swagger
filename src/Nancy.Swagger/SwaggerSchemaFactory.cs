@@ -97,6 +97,7 @@ namespace Nancy.Swagger
             Schema schema = new Schema();
             schema.Type = property.Type?.ToCamelCase();
             schema.Description = property.Description;
+            schema.AdditionalProperties = property.AdditionalProperties;
 
             if (schema.Type == null)
             {
@@ -115,6 +116,10 @@ namespace Nancy.Swagger
                     schema.Items.Ref = DefinitionsRefLocation + property.Items.Ref;
                 }
 
+            }
+            else if (schema.Type.Equals("object") && schema.AdditionalProperties?.Ref != null)
+            {
+                schema.AdditionalProperties.Ref = DefinitionsRefLocation + schema.AdditionalProperties.Ref;
             }
             return schema;
         }

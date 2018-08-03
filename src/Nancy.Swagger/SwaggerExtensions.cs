@@ -61,26 +61,44 @@ namespace Nancy.Swagger
 
             if (type.IsContainer())
             {
-                dataType.Type = "array";
-
-                var itemsType = type.GetElementType() ?? type.GetTypeInfo().GetGenericArguments().FirstOrDefault();
-
-                if (Primitive.IsPrimitive(itemsType))
+                if (type.GetTypeInfo().IsGenericType && (type.GetGenericTypeDefinition().IsAssignableFrom(typeof(IDictionary<,>)) ||
+                    type.GetGenericTypeDefinition().IsAssignableFrom(typeof(Dictionary<,>))))
                 {
-                    var primitive = Primitive.FromType(itemsType);
+                    dataType.Type = "object";
 
-                    dataType.Items = new Item
+                    var generics = type.GetTypeInfo().GetGenericArguments();
+
+                    if (generics.Length != 2 || generics.First() != typeof(string))
                     {
-                        Type = primitive.Type,
-                        Format = primitive.Format
-                    };
+                        throw new InvalidOperationException("Only dictionaries with string keys are supported");
+                    }
+
+                    var classType = generics.Last();
+                    dataType.AdditionalProperties = ToDataType<ModelProperty>(classType, !Primitive.IsPrimitive(classType));
+                }
+                else
+                {
+                    dataType.Type = "array";
+
+                    var itemsType = type.GetElementType() ?? type.GetTypeInfo().GetGenericArguments().FirstOrDefault();
+
+                    if (Primitive.IsPrimitive(itemsType))
+                    {
+                        var primitive = Primitive.FromType(itemsType);
+
+                        dataType.Items = new Item
+                        {
+                            Type = primitive.Type,
+                            Format = primitive.Format
+                        };
+
+                        return dataType;
+                    }
+
+                    dataType.Items = new Item { Ref = SwaggerConfig.ModelIdConvention(itemsType) };
 
                     return dataType;
                 }
-
-                dataType.Items = new Item { Ref = SwaggerConfig.ModelIdConvention(itemsType) };
-
-                return dataType;
             }
 
             if (isTopLevel)
