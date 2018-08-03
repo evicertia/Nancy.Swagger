@@ -4,7 +4,7 @@
     <TargetFrameworks>netcoreapp1.0;net452</TargetFrameworks>
     <AssemblyName>Nancy.Swagger.Autofac.Demo</AssemblyName>
     <OutputType>Exe</OutputType>
-    <PackageId>Nancy.Swagger.Autofac.Demo</PackageId>
+    <PackageId>HermaFx.NancySwaggerAutofacDemo</PackageId>
     <PackageTargetFallback Condition=" '$(TargetFramework)' == 'netcoreapp1.0' ">$(PackageTargetFallback);dnxcore50</PackageTargetFallback>
     <RuntimeFrameworkVersion Condition=" '$(TargetFramework)' == 'netcoreapp1.0' ">1.0.4</RuntimeFrameworkVersion>
     <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>

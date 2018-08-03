@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net452</TargetFramework>
     <AssemblyName>Nancy.Swagger.Annotations.Tests</AssemblyName>
-    <PackageId>Nancy.Swagger.Annotations.Tests</PackageId>
+    <PackageId>HermaFx.NancySwaggerAnnotationsTests</PackageId>
     <NetStandardImplicitPackageVersion>1.6.0</NetStandardImplicitPackageVersion>
     <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>

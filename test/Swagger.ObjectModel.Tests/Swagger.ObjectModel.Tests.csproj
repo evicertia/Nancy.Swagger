@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net452</TargetFramework>
     <AssemblyName>Swagger.ObjectModel.Tests</AssemblyName>
-    <PackageId>Swagger.ObjectModel.Tests</PackageId>
+    <PackageId>HermaFx.SwaggerObjectModelTests</PackageId>
     <NetStandardImplicitPackageVersion>1.6.0</NetStandardImplicitPackageVersion>
     <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>

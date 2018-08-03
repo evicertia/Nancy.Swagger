@@ -5,7 +5,7 @@
     <PreserveCompilationContext>true</PreserveCompilationContext>
     <AssemblyName>Nancy.Swagger.Annotations.Demo</AssemblyName>
     <OutputType>Exe</OutputType>
-    <PackageId>Nancy.Swagger.Annotations.Demo</PackageId>
+    <PackageId>HermaFx.NancySwaggerAnnotationsDemo</PackageId>
     <PackageTargetFallback Condition=" '$(TargetFramework)' == 'netcoreapp1.0' ">$(PackageTargetFallback);dnxcore50</PackageTargetFallback>
     <RuntimeFrameworkVersion Condition=" '$(TargetFramework)' == 'netcoreapp1.0' ">1.0.4</RuntimeFrameworkVersion>
   </PropertyGroup>
