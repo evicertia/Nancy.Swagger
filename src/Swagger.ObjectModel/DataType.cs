@@ -28,9 +28,6 @@ namespace Swagger.ObjectModel
         /// <summary>
         /// The type definition of the values in the container.
         /// </summary>
-        /// <remarks>
-        /// A container MAY NOT be nested in another container.
-        /// </remarks>
         [SwaggerProperty("items", true)]
         public Item Items { get; set; }
 
