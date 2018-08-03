@@ -48,7 +48,7 @@ namespace Nancy.Swagger
                 else
                 {
                     Items.Type = "object";
-                    Items.Ref = DefinitionsRefLocation + subType?.Name;
+                    Items.Ref = DefinitionsRefLocation + (subType != null ? SwaggerConfig.ModelIdConvention(subType) : "");
                 }
             }
         }
@@ -65,7 +65,7 @@ namespace Nancy.Swagger
                 }
                 else
                 {
-                    Ref = DefinitionsRefLocation + t.Name;
+                    Ref = DefinitionsRefLocation + SwaggerConfig.ModelIdConvention(t);
                 }
             }
         }
