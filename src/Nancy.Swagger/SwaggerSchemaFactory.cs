@@ -98,6 +98,11 @@ namespace Nancy.Swagger
             schema.Type = property.Type?.ToCamelCase();
             schema.Description = property.Description;
 
+            if (property.Format != null)
+            {
+                schema.Format = property.Format;
+            }
+
             if (schema.Type == null)
             {
                 schema.Ref = DefinitionsRefLocation + property.Ref;
