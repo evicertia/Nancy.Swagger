@@ -29,6 +29,8 @@ namespace Swagger.ObjectModel
 
             // Misc
             { typeof(SwaggerFile), new Primitive("file") },
+            { typeof(Guid), new Primitive("string", "uuid") },
+            { typeof(Uri), new Primitive("string", "uri") },
         };
 
         private Primitive(string type, string format = null)

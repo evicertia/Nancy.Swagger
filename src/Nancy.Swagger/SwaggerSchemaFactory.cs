@@ -99,6 +99,11 @@ namespace Nancy.Swagger
             schema.Description = property.Description;
             schema.AdditionalProperties = property.AdditionalProperties;
 
+            if (property.Format != null)
+            {
+                schema.Format = property.Format;
+            }
+
             if (schema.Type == null)
             {
                 schema.Ref = DefinitionsRefLocation + property.Ref;
